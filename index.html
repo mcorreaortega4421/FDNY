@@ -1,0 +1,489 @@
+<html>
+    <style>
+            h1{
+                font-family:"Arial";
+                text-shadow:gray 2px 2px 2px;
+                color:rgb(211, 207, 8);
+            }
+            p{
+                font-size:14pt;
+                font-family:"Arial";
+                text-align: center;
+                color: #06c;
+            }
+            a{
+                background-color:blue;
+                text-decoration:none;
+                color:white;
+                font-weight:bold;
+                padding:5px;
+                text-align: center;
+                border-radius:10px;
+                box-shadow:black 5px 5px 5px;
+            }
+            .button {
+                position: absolute;
+                background-color: #eb0707;
+                color: #FFFFFF;
+                font-size: 16px;
+                border: none;
+                cursor: pointer;
+                border-radius: 5px;
+            }
+            .pl {
+                background-color: #fd5555;
+                color: #ffffff;
+                font-size: 16px;
+                border: none;
+                cursor: pointer;
+                border-radius: 5px;
+            }
+            .card{
+                padding:10px;
+                margin:10px;
+                display:inline-block;
+                border-radius:10px;
+                border: 2px solid;
+                box-shadow:black 5px 5px 5px;
+                width: 325px;
+                height: 325px;
+                text-align: center;
+            }
+            .card2{
+                padding:10px;
+                margin:10px;
+                display:inline-block;
+                border-radius:10px;
+                border: 2px solid;
+                box-shadow:black 5px 5px 5px;
+                width: 400px;
+                height: 400px;
+                text-align: center;
+            }
+             img{
+                width: 100%;
+                height: 100%;
+                border-radius: 8px;
+             }
+             .flip3D{ width:200px; height:220px; display:inline-block; }
+                 .flip3D > .front{
+                 position:absolute;
+                 transform: perspective( 600px ) rotateX( 0deg );
+                 backface-visibility: hidden;
+                 transition: transform .5s linear 0s;
+                 padding:10px;
+                 margin:10px;
+                 display:inline-block;
+                 border-radius:10px;
+                 border: 2px solid;
+                 border-color: #eb0707;
+                 box-shadow:black 5px 5px 5px;
+                 width: 325px;
+                 height: 325px;
+                 text-align: center;
+             }
+             .flip3D > .back{
+                 position:absolute;
+                 transform: perspective( 600px ) rotateX( 180deg );
+                 backface-visibility: hidden;
+                 transition: transform .5s linear 0s;
+                 padding:10px;
+                 margin:10px;
+                 display:inline-block;
+                 border-radius:10px;
+                 border: 2px solid;
+                 border-color: #eb0707;
+                 box-shadow:black 5px 5px 5px;
+                 width: 325px;
+                 height: 325px;
+                 text-align: center;
+             } 
+             .flip3D:hover > .front{
+                 transform: perspective(600px) rotateX(-180deg);
+                 box-shadow: 5px 5px 5px grey;
+             }
+             .flip3D:hover > .back{
+                 transform: perspective(600px) rotateX(0deg);
+                 box-shadow: 5px 5px 5px grey;
+                 transform: scale(1.1);
+             }
+            .tabset > input[type="radio"] {
+                    position: absolute;
+                    left: -200vw;
+                }
+            .tabset .tab-panel {
+                    display: none;
+            }
+            .tabset > input:first-child:checked ~ .tab-panels > .tab-panel:first-child,
+            .tabset > input:nth-child(3):checked ~ .tab-panels > .tab-panel:nth-child(2),
+            .tabset > input:nth-child(5):checked ~ .tab-panels > .tab-panel:nth-child(3),
+            .tabset > input:nth-child(7):checked ~ .tab-panels > .tab-panel:nth-child(4),
+            .tabset > input:nth-child(9):checked ~ .tab-panels > .tab-panel:nth-child(5),
+            .tabset > input:nth-child(11):checked ~ .tab-panels > .tab-panel:nth-child(6) {
+                display: block;
+                }
+            .tabset > label {
+                font-family: "Courier New", Times, Monospace;
+                position: relative;
+                display: inline-block;
+                padding: 15px 15px 25px;
+                border: 1px solid transparent;
+                border-bottom: 0;
+                cursor: pointer;
+                font-weight: 600;
+                color: rgb(0, 0, 0);
+                
+            }
+            .tabset > label::after {
+                content: "";
+                position: absolute;
+                left: 15px;
+                bottom: 10px;
+                width: 22px;
+                height: 4px;
+                background: #eb0707;
+            }
+            .tabset > label:hover,
+            .tabset > input:focus + label {
+                color: rgb(0, 0, 0);
+            }
+            .tabset > label:hover::after,
+            .tabset > input:focus + label::after,
+            .tabset > input:checked + label::after {
+                background: #06c;
+            }
+            .tabset > input:checked + label {
+                border-color: rgb(0, 0, 0);
+                border-bottom: 1px solid #eb0707;
+                margin-bottom: -1px;
+            }
+            .tab-panel {
+                padding: 30px 0;
+                border-top: 1px solid #eb0707;
+            }
+            *,
+            *:before,
+            *:after {
+                box-sizing: border-box;
+            }
+            .tabset {
+                max-width: 1000em;
+            }
+            h2{
+                font-family:"Arial";
+                font-style: italic;
+                text-shadow: gray 2px 2px 2px;
+                text-align: center;
+                color: #06c;
+                margin-top: 0;
+            }
+            hr{
+                width: 100%;
+                height: 1px;
+                margin-left: auto;
+                margin-right: auto;
+                background-color:#eb0707;
+                color:#eb0707;
+                border: 0 none;
+            }
+            header{
+                text-align: center;
+                margin: 0;
+                padding: 40px 30px 4px;
+            }
+            ::placeholder{
+                color: black
+            }
+            body {
+                background-color: #B3A6A6;
+            }
+            p2{
+                font-family: verdana;
+                font-size: 20px;
+                color: #06c;
+                text-align:center;
+             }
+             p3{
+                position:absolute;
+                left:50%;
+                top:50%;
+                margin:-75px 0 0 -135px;
+                border-radius:10px;
+                border: 2px solid;
+                border-color: #eb0707;
+                box-shadow:black 5px 5px 5px;
+                width: 330px;
+                height: 410px;
+                padding:10px;
+             }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>      
+
+            <script type="text/template" id="ctemp">
+            <div class="card">
+            <h1> {{nta}} </h1>
+            <p> Borough: {{borough}} </p>
+            <p> Facility Name: {{facilityname}} </p>
+            <p> Address: {{facilityaddress}}</p>
+            <hr>
+            <p> Postcard: {{postcode}} <p>
+            <button onclick = "myMap({{latitude}}, {{longitude}})" , "margin:auto; display:block; text-align: center;" , class = "button">Map</button>
+            </div>
+            </script>
+
+            <script type="text/template" id="ctemp2">
+            <div class="card">
+            <h1> {{incidentborough}} </h1>
+            <p> Classification: {{incidentclassification}}</p>
+            <p> Date: {{yearmonth}}</p>
+            <p> Responce Time: {{averageresponsetime}}</p>
+            <hr>
+            <p> Deaths: {{incidentcount}}</p>
+            </div>
+            </script>
+
+            <script type="text/template" id="ctemp3">
+            <div class="card">
+            <h1> {{location_1}} </h1>
+            <p> Area: {{area_vac}}</p>
+            <p> Census: {{census_tract}}</p>
+            <p> Date: {{vac_date}}</p>
+            <p> Postcard: {{postcode}} </p>
+            <button onclick = "myMap({{latitude}}, {{longitude}})" , "margin:auto; display:block; text-align: center;" , class = "button">Map</button>
+            </div>
+            </script>
+
+            <script type="text/template" id="ctemp4">
+            <div class="card2">
+            <h1> {{incident_classification}} </h1>
+            <p> Borough: {{alarm_box_borough}}</p>
+            <p> Datetime: {{first_activation_datetime}}</p>
+            <p> Location: {{alarm_box_location}}</p>
+            <hr>
+            <p> Alarm Level: {{highest_alarm_level}}</p>
+            <p> Responce Time: {{incident_response_seconds_qy}}</p>
+            <p> StarFire ID: {{starfire_incident_id}}</p>
+            <p> Zipcode: {{zipcode}}</p>
+            </div>
+            </script>
+
+    <script>
+        function myMap(lat,lng) {
+            var myCenter = new google.maps.LatLng(lat, lng);
+            var mapCanvas = document.getElementById("map");
+            var mapOptions = {center: myCenter, zoom: 18};
+            var map = new google.maps.Map(mapCanvas, mapOptions);
+            var marker = new google.maps.Marker({position:myCenter});
+            marker.setMap(map);
+        }
+        
+            var data;
+            var data2;
+            var data3;
+            var data4;
+            function search(){              
+                $.getJSON("https://data.cityofnewyork.us/resource/byk8-bdfw.json",function(results){
+                    data = results;
+                })
+            }        
+            
+            function FDNY1(){
+                var build = "";
+                var output = document.getElementById("output")
+                var temp = document.getElementById("ctemp").innerHTML;
+                var nta = document.getElementById("nta")
+                var borough = document.getElementById("borough")
+                
+                for(var index = 0; index < data.length; index++){
+                    try{
+                        if(data[index].nta.toLowerCase().indexOf(nta.value.toLowerCase()) != -1 && data[index].borough.toLowerCase().indexOf(borough.value.toLowerCase()) != -1){
+                        build += Mustache.render(temp,data[index]);}
+                    }catch(e){
+                    }
+                }
+                output.innerHTML =  build;  
+            }
+        function search2(){              
+            $.getJSON("https://data.cityofnewyork.us/resource/6b8a-2fci.json",function(results){
+                data2 = results;
+            })
+        }        
+        
+        function FDNY2(){
+            var build = "";
+            var output = document.getElementById("output2")
+            var temp = document.getElementById("ctemp2").innerHTML;
+            var incidentclassification = document.getElementById("incidentclassification")
+            var incidentborough = document.getElementById("incidentborough")
+            
+            for(var index = 0; index < data2.length; index++){
+                try{
+                    if(data2[index].incidentclassification.toLowerCase().indexOf(incidentclassification.value.toLowerCase()) != -1 && data2[index].incidentborough.toLowerCase().indexOf(incidentborough.value.toLowerCase()) != -1){
+                        build += Mustache.render(temp,data2[index]);}
+                }catch(e){
+                }
+            }
+                output.innerHTML =  build; 
+        }
+        function search3(){              
+            $.getJSON("https://data.cityofnewyork.us/resource/6i93-d96k.json",function(results){
+                data3 = results;
+            })
+        }        
+        
+        function FDNY3(){
+            var build = "";
+            var output = document.getElementById("output3")
+            var temp = document.getElementById("ctemp3").innerHTML;
+            var location_1 = document.getElementById("location_1")
+            
+            for(var index = 0; index < data3.length; index++){
+                try{
+                    if(data3[index].location_1.toLowerCase().indexOf(location_1.value.toLowerCase()) != -1){ 
+                        build += Mustache.render(temp,data3[index]);}
+                }catch(e){
+                }
+            }
+                output.innerHTML =  build; 
+        }
+        function search4(){              
+            $.getJSON("https://data.cityofnewyork.us/resource/mhu7-c3xb.json",function(results){
+                data4 = results;
+            })
+        }        
+        
+        function FDNY4(){
+            var build = "";
+            var output = document.getElementById("output4")
+            var temp = document.getElementById("ctemp4").innerHTML;
+            var incident_classification = document.getElementById("incident_classification")
+            var alarm_box_borough = document.getElementById("alarm_box_borough")
+            var starfire_incident_id = document.getElementById("starfire_incident_id")
+            
+            for(var index = 0; index < data4.length; index++){
+                try{
+                    if(data4[index].incident_classification.toLowerCase().indexOf(incident_classification.value.toLowerCase()) != -1 && data4[index].alarm_box_borough.toLowerCase().indexOf(alarm_box_borough.value.toLowerCase()) != -1 && data4[index].starfire_incident_id.toLowerCase().indexOf(starfire_incident_id.value.toLowerCase()) != -1){ 
+                        build += Mustache.render(temp,data4[index]);}
+                }catch(e){
+                }
+            }
+                output.innerHTML =  build; 
+        }
+    
+    </script>
+            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmUTVlgWdYMIaLpk5MVTnmN2t_ZITXMhU" type="text/javascript"></script>
+            
+            <header><h2><font size="10"> FDNY </header></font><img src= "http://www1.nyc.gov/assets/home/images/programs/FDNY-logo.jpg" 
+            style=
+            "float: left; 
+            width: 125px;
+            height: 125px;
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            border-radius: 50%;">
+            </h2>
+            <div id = "map" 
+            style=
+            "width:304px; 
+            height:204px; 
+            position:absolute; 
+            top:0px; 
+            right:0px; 
+            display:inline-block;
+            border-radius:10px;
+            border: 2px solid;
+            background-color: #B3A6A6;
+            color: #eb0707;"></div>
+            <hr> 
+            
+        <body onload = "search4() ; search3() ; search2() ; search()">
+            <div class="tabset">
+        
+             <input type="radio" name="tabset" id="tab1" aria-controls="FDNY-Home" checked>
+             <label for="tab1">FDNY-Home</label>
+             <input type="radio" name="tabset" id="tab2" aria-controls="Fire House">
+             <label for="tab2">Fire Stations</label>
+             <input type="radio" name="tabset" id="tab3" aria-controls="Responce Time">
+             <label for="tab3">Responce Times</label>
+             <input type="radio" name="tabset" id="tab4" aria-controls="Vacated Buildings">
+             <label for="tab4">Vacated Buildings</label>
+             <input type="radio" name="tabset" id="tab5" aria-controls="Dispatch Calls">
+             <label for="tab5">Dispatch Calls</label>
+
+            <div class="tab-panels">
+             <section id="FDNY-Home" class="tab-panel">
+                 <p3>In this website, Fire Department New York, you will be able to search and sort through different data. There are four different sets of JSONS relating to the FDNY. Each JSON dataset is contained in a separate tab. In the first tab, you will be able to find a Fire House base on the borough you search for. In the second tab you can search through Response Time, which gives a general estimate of number of deaths, the year and response time for each borough and incident. Third tab gives details on vacated buildings and when they were vacated. The last tab shows dispatch calls and their details like location, borough, response time, date and time. For all the tabs you can just click display without having to input information to display the whole JSON dataset. In the Fire House tab and Vacated Building tab there is an option for each card of information that allows you to view the location in google maps at the right corner of the screen.</p3>
+                 <div class=center>
+                 <div class= flip3D>
+                 <div class = front>
+                 <center><p2>A JSON list about Fire Stations, with a borough, address, name, NTA, postcard, etc...</p2></center>
+                 </div>
+                 <div class = back>
+                 <img src = "pics/fire2.png">
+                 </div>
+                 </div><br><br><br><br><br><br><br><br>
+
+                 <div class=center>
+                 <div class= flip3D>
+                 <div class = front>
+                 <center><p2>A JSON list about Responce Times, with a borough, incident count, classification, date and responce time.</p2></center>
+                 </div>
+                 <div class = back>
+                 <img src = "pics/fire1.png">
+                 </div>
+                 </div><br><br><br><br><br><br><br><br>
+
+                 <div class=center style= "position:absolute; top:231px; right:155px; display:inline-block;">
+                 <div class= flip3D>
+                 <div class = front>
+                 <center><p2>A JSON list about Vacated Buildings, with a area, location, date, NTA, etc...</p2></center>
+                 </div>
+                 <div class = back>
+                 <img src = "pics/fire4.png">
+                 </div>
+                 </div><br><br><br><br><br><br><br><br>
+
+                 <div class=center style= "position:absolute; top:347px; right:0px; display:inline-block;">
+                 <div class= flip3D>
+                 <div class = front>
+                 <center><p2>A JSON list about Dispatch Calls, with a borough, location, despription, Alarm Level, Classification, Date, etc...</p2></center>
+                 </div>
+                 <div class = back>
+                 <img src = "pics/fire3.png">
+                 </div>
+                 </div><br><br><br><br><br><br><br><br>
+
+             </section>
+
+            <section id="Fire House" class="tab-panel">
+                <input type="text" id="nta" class="pl" placeholder="Enter a Name">
+                <input type="text" id="borough" class="pl" placeholder="Enter a Borough">
+                <button onclick="FDNY1()" class="button">Display</button>
+                <div id = "output"></div>
+            </section>
+
+            <section id="Responce Time" class="tab-panel">
+                <input type="text" id="incidentclassification" class="pl" placeholder="Enter a Classification">
+                <input type="text" id="incidentborough" class="pl" placeholder="Enter a Borough">
+                <button onclick="FDNY2()" class="button">Display</button>
+                <div id = "output2"></div>
+            </section>
+
+            <section id="Vacated Buildings" class="tab-panel">
+                <input type="text" id="location_1" class="pl" placeholder="Enter a Location">
+                <button onclick="FDNY3()" class="button">Display</button>
+                <div id = "output3"></div>
+            </section>
+
+            <section id="Dispatch Calls" class="tab-panel">
+                <input type="text" id="incident_classification" class="pl" placeholder="Enter a Classification">
+                <input type="text" id="alarm_box_borough" class="pl" placeholder="Enter a Borough">
+                <input type="text" id="starfire_incident_id" class="pl" placeholder="Enter a Starfire ID">
+                <button onclick="FDNY4()" class="button">Display</button>
+                <div id = "output4"></div>
+            </section>
+
+        </body>
+    </html>
